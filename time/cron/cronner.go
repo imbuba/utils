@@ -4,7 +4,7 @@ import (
 	"sync"
 	"time"
 
-	t "utils.aidiod.net/time"
+	t "github.com/imbuba/utils/time"
 )
 
 // EmptyFunction type
