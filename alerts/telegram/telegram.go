@@ -19,17 +19,17 @@ const (
 	pathSetWebhook     = "/setWebhook"
 )
 
-// TelegramConfig describes telegram config
-type TelegramConfig struct {
+// Config describes telegram config
+type Config struct {
 	URL      string            `json:"url"`
 	Chats    map[string]string `json:"chats"`
 	BotID    string            `json:"botId"`
 	BotToken string            `json:"botToken"`
 }
 
-// TelegramAlert is Telegram structure
-type TelegramAlert struct {
-	config  *Telegram
+// Alert is Telegram structure
+type Alert struct {
+	config  *Config
 	timeout time.Duration
 	botURL  string
 }
@@ -45,8 +45,8 @@ type getWebhookInfoResponse struct {
 }
 
 // InitTelegram initialize Telegram
-func InitTelegram(config *TelegramConfig, connectionTimeoutSeconds time.Duration) *TelegramAlert {
-	return &TelegramAlert{
+func InitTelegram(config *Config, connectionTimeoutSeconds time.Duration) *Alert {
+	return &Alert{
 		botURL:  fmt.Sprintf(config.URL, config.BotID, config.BotToken),
 		timeout: connectionTimeoutSeconds * time.Second,
 		config:  config,
@@ -54,7 +54,7 @@ func InitTelegram(config *TelegramConfig, connectionTimeoutSeconds time.Duration
 }
 
 // PostMessage do a post request to Telegram with message param and using infoLevel
-func (mngr *TelegramAlert) PostMessage(message string, infoLevel string) error {
+func (mngr *Alert) PostMessage(message string, infoLevel string) error {
 	var err error
 
 	chatID, ok := mngr.config.Chats[infoLevel]
@@ -83,13 +83,13 @@ func (mngr *TelegramAlert) PostMessage(message string, infoLevel string) error {
 	return nil
 }
 
-func (mngr *TelegramAlert) makeRequest(chatID string, text string, client *fasthttp.Client) error {
+func (mngr *Alert) makeRequest(chatID string, text string, client *fasthttp.Client) error {
 	req := fasthttp.AcquireRequest()
 	defer fasthttp.ReleaseRequest(req)
 
 	req.SetRequestURI(mngr.botURL + pathSendMessage)
 	req.Header.SetMethod(transport.Post)
-	req.Header.SetContentType(transport.ApplicationJson)
+	req.Header.SetContentType(transport.ApplicationJSON)
 	reqBody := map[string]string{
 		"chat_id":    chatID,
 		"parse_mode": "Markdown",
@@ -119,7 +119,7 @@ func (mngr *TelegramAlert) makeRequest(chatID string, text string, client *fasth
 }
 
 // RegisterWebhook do smth
-func (mngr *TelegramAlert) RegisterWebhook(url string) {
+func (mngr *Alert) RegisterWebhook(url string) {
 	client := transport.GetHTTPClient()
 	sc, body, err := client.GetTimeout(nil, mngr.botURL+pathGetWebhookInfo, time.Second*5)
 	transport.PutHTTPClient(client)
@@ -146,12 +146,12 @@ func (mngr *TelegramAlert) RegisterWebhook(url string) {
 }
 
 // setWebhook do smth
-func (mngr *TelegramAlert) setWebhook(url string) {
+func (mngr *Alert) setWebhook(url string) {
 	client := transport.GetHTTPClient()
 	req := fasthttp.AcquireRequest()
 	req.SetRequestURI(mngr.botURL + pathSetWebhook)
 	req.Header.SetMethod(transport.Post)
-	req.Header.SetContentType(transport.ApplicationJson)
+	req.Header.SetContentType(transport.ApplicationJSON)
 	reqBody := map[string]interface{}{
 		"url":             url,
 		"allowed_updates": []string{"message"},
