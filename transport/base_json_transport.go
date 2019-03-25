@@ -81,7 +81,7 @@ func SendResponse(ctx *fasthttp.RequestCtx, response pool.Reusable, startTime ti
 		ctx.Error(err.Error(), fasthttp.StatusInternalServerError)
 		return
 	}
-	ctx.SetContentType(ApplicationJSON)
+	ctx.SetContentType(ApplicationJSONUTF8)
 	ctx.SetBody(js)
 	path := string(ctx.Path())
 	reqID := ctx.ID()
