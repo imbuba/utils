@@ -24,7 +24,7 @@ var (
 	}
 	timings    = make(map[string]*median)
 	timingsReg = make(map[*regexp.Regexp]*median)
-	logger     = log.New(os.Stderr, "\n------------------------------\n", log.LstdFlags)
+	logger     = log.New(os.Stderr, "\n-----------------------------\n", log.LstdFlags)
 )
 
 func init() {
@@ -54,6 +54,11 @@ func (m *median) String() string {
 		return fmt.Sprintf(": {\"min\":%v, \"max\":%v, \"med\":%v}\n", m.Min, m.Max, m.Total/m.Count)
 	}
 	return ": Not enough stats\n"
+}
+
+// SetLogger sets new logger
+func SetLogger(lgr *log.Logger) {
+	logger = lgr
 }
 
 // RouterFunc router function
