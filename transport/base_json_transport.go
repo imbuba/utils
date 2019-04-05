@@ -11,10 +11,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/imbuba/utils/math/ints"
-	"github.com/imbuba/utils/pool"
-	"github.com/imbuba/utils/transport/request"
-	"github.com/imbuba/utils/transport/response"
+	"github.com/finnan444/utils/math/ints"
+	"github.com/finnan444/utils/pool"
+	"github.com/finnan444/utils/transport/request"
+	"github.com/finnan444/utils/transport/response"
 	"github.com/valyala/fasthttp"
 )
 

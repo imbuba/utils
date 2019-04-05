@@ -3,7 +3,7 @@ package ping
 import (
 	"time"
 
-	"github.com/imbuba/utils/transport"
+	tr "github.com/finnan444/utils/transport"
 	"github.com/valyala/fasthttp"
 )
 
@@ -12,8 +12,8 @@ var (
 )
 
 func init() {
-	transport.AddGetRoute("/ping", ping)
-	transport.AddGetRoute("/blind-ping", ping)
+	tr.AddGetRoute("/ping", ping)
+	tr.AddGetRoute("/blind-ping", ping)
 }
 
 func ping(ctx *fasthttp.RequestCtx, now time.Time, adds ...string) {

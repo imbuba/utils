@@ -5,7 +5,7 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/imbuba/utils/transport"
+	tr "github.com/finnan444/utils/transport"
 	"github.com/valyala/fasthttp"
 )
 
@@ -20,7 +20,7 @@ var memStat = new(runtime.MemStats)
 var result = new(healthResult)
 
 func init() {
-	transport.AddGetRoute("/health", health)
+	tr.AddGetRoute("/health", health)
 }
 
 func health(ctx *fasthttp.RequestCtx, now time.Time, adds ...string) {
@@ -30,6 +30,6 @@ func health(ctx *fasthttp.RequestCtx, now time.Time, adds ...string) {
 	result.LiveObjects = memStat.Mallocs - memStat.Frees
 	result.NumGoroutines = runtime.NumGoroutine()
 	bytes, _ := json.Marshal(result)
-	ctx.SetContentType(transport.ApplicationJSON)
+	ctx.SetContentType(tr.ApplicationJSON)
 	ctx.SetBody(bytes)
 }

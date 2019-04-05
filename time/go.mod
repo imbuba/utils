@@ -1,3 +1,3 @@
-module github.com/imbuba/utils/time
+module github.com/finnan444/utils/time
 
 go 1.12

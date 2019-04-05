@@ -3,6 +3,7 @@ module github.com/finnan444/utils
 require (
 	github.com/btcsuite/btcd v0.0.0-20190315201642-aa6e0f35703c // indirect
 	github.com/ethereum/go-ethereum v1.8.23
+	github.com/finnan444/utils/pool v0.0.0-20190405114254-05b442993034
 	github.com/globalsign/mgo v0.0.0-20181015135952-eeefdecb41b8
 	github.com/imbuba/utils v1.0.3
 	github.com/imbuba/utils/pool v0.0.0-20190328091543-76dad0d96b45

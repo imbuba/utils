@@ -8,7 +8,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/imbuba/utils/math/ints"
+	"github.com/finnan444/utils/math/ints"
 	"github.com/valyala/fasthttp"
 )
 
