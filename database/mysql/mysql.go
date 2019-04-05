@@ -3,7 +3,7 @@ package mysql
 import (
 	"os"
 
-	"github.com/imbuba/utils/database"
+	"github.com/finnan444/utils/database"
 	"github.com/jinzhu/gorm"
 
 	// needs

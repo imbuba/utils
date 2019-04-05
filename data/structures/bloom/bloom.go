@@ -7,9 +7,9 @@ import (
 	"io"
 	"sync"
 
-	"github.com/imbuba/utils/data/structures/set"
-	"github.com/imbuba/utils/hash"
-	"github.com/imbuba/utils/math/ints"
+	"github.com/finnan444/utils/data/structures/set"
+	"github.com/finnan444/utils/hash"
+	"github.com/finnan444/utils/math/ints"
 )
 
 // ErrEmptyKey error for empty key

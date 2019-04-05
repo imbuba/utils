@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/imbuba/utils/data"
+	"github.com/finnan444/utils/data"
 )
 
 const (

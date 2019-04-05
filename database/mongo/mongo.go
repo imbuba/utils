@@ -4,9 +4,9 @@ import (
 	"log"
 	"os"
 
+	"github.com/finnan444/utils/database"
 	"github.com/globalsign/mgo"
 	"github.com/globalsign/mgo/bson"
-	"github.com/imbuba/utils/database"
 )
 
 // DBWrapper struct

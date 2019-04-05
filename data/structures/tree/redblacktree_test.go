@@ -3,7 +3,7 @@ package tree
 import (
 	"testing"
 
-	"github.com/imbuba/utils/data"
+	"github.com/finnan444/utils/data"
 )
 
 func fillTree(tree *RedBlackTree) {
