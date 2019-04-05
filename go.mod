@@ -1,4 +1,4 @@
-module github.com/imbuba/utils
+module github.com/finnan444/utils
 
 require (
 	cloud.google.com/go v0.37.0 // indirect
