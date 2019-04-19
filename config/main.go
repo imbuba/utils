@@ -6,20 +6,16 @@ import (
 )
 
 // LoadConfiguration универсальный загрузчик конфы
-func LoadConfiguration(filename string, config interface{}) (interface{}, error) {
+func LoadConfiguration(filename string, config interface{}) error {
 	file, err := os.Open(filename)
 	if err != nil {
-		return config, err
+		return err
 	}
-
 	defer file.Close()
 
 	decoder := json.NewDecoder(file)
-	err = decoder.Decode(config)
-
-	if err != nil {
-		return config, err
+	if err = decoder.Decode(config); err != nil {
+		return err
 	}
-
-	return config, nil
+	return nil
 }

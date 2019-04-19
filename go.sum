@@ -40,6 +40,8 @@ github.com/erikstmartin/go-testdb v0.0.0-20160219214506-8d10e4a1bae5 h1:Yzb9+7DP
 github.com/erikstmartin/go-testdb v0.0.0-20160219214506-8d10e4a1bae5/go.mod h1:a2zkGnVExMxdzMo3M0Hi/3sEU+cWnZpSni0O6/Yb/P0=
 github.com/ethereum/go-ethereum v1.8.23 h1:xVKYpRpe3cbkaWN8gsRgStsyTvz3s82PcQsbEofjhEQ=
 github.com/ethereum/go-ethereum v1.8.23/go.mod h1:PwpWDrCLZrV+tfrhqqF6kPknbISMHaJv9Ln3kPCZLwY=
+github.com/finnan444/utils/config v0.0.0-20190405124947-3237bfe0ab59 h1:G/jA9gyJ7kFmjUEHlezuHZ90Zfi/UAKkLhEqRU2/y4E=
+github.com/finnan444/utils/config v0.0.0-20190405124947-3237bfe0ab59/go.mod h1:pXsbbTXD5QsubSs4wG3kmtlkvUooOQYndjml2dDIRc4=
 github.com/finnan444/utils/pool v0.0.0-20190405114254-05b442993034 h1:cerJoO6KC5A5dPMXP/StR75rKSESxt278e6Z5u4XeTI=
 github.com/finnan444/utils/pool v0.0.0-20190405114254-05b442993034/go.mod h1:vYDZPvHmCQt/LIcPO9rrb6DIIAJBg6Y4NKZSGp4Ek/w=
 github.com/flynn/go-shlex v0.0.0-20150515145356-3f9db97f8568/go.mod h1:xEzjJPgXI435gkrCt3MPfRiAkVrwSbHsst4LCFVfpJc=
