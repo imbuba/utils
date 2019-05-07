@@ -1,0 +1,4 @@
+github.com/finnan444/utils/time v0.0.0-20190405115310-4added3c2353 h1:KsexS7L9Uw4wnOpUKlDGmApi3jDmHP3l7+rixAG5hjs=
+github.com/finnan444/utils/time v0.0.0-20190405115310-4added3c2353/go.mod h1:WXRt49SP6qAmlOHxHOHfgPDNn8XHNjCJaJBNYL2yDGw=
+github.com/finnan444/utils/time/cron v0.0.0-20190419090713-77ab846b6c26 h1:M1M2UnbZ9tVjBAG4kGYU/M5tkOVx71KAQpE4Vs+Qd0M=
+github.com/finnan444/utils/time/cron v0.0.0-20190419090713-77ab846b6c26/go.mod h1:5SbIgn2/YOq0exhFLswqnYePsI1NpNIwor7FCM9AD/I=
