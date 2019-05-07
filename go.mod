@@ -6,6 +6,7 @@ require (
 	github.com/erikstmartin/go-testdb v0.0.0-20160219214506-8d10e4a1bae5 // indirect
 	github.com/ethereum/go-ethereum v1.8.23
 	github.com/finnan444/utils/config v0.0.0-20190405124947-3237bfe0ab59 // indirect
+	github.com/finnan444/utils/logging v0.0.0-20190507095858-3a6f5fabada7 // indirect
 	github.com/finnan444/utils/pool v0.0.0-20190405114254-05b442993034
 	github.com/globalsign/mgo v0.0.0-20181015135952-eeefdecb41b8
 	github.com/go-sql-driver/mysql v1.4.1 // indirect

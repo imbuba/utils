@@ -30,8 +30,8 @@ type rotater struct {
 
 // Write satisfies the io.Writer interface.
 func (w *rotater) Write(output []byte) (int, error) {
-	w.Lock()
-	defer w.Unlock()
+	w.RLock()
+	defer w.RUnlock()
 	return w.file.Write(output)
 }
 
@@ -76,8 +76,8 @@ func newRotater(filename string, period time.Duration) *rotater {
 	return result
 }
 
-// GetErrorLogger returns logger with stderr
-func GetErrorLogger(name string, filenames ...string) (result *log.Logger) {
+// GetErrorLogger returns files logger with stderr
+func GetErrorLogger(name string, restartPeriod time.Duration, filenames ...string) (result *log.Logger) {
 	var ok bool
 	logLocker.RLock()
 	if result, ok = customLoggers[name]; ok {
@@ -91,10 +91,13 @@ func GetErrorLogger(name string, filenames ...string) (result *log.Logger) {
 	logLocker.Lock()
 	for _, fn := range filenames {
 		if file, ok = files[fn]; !ok {
-			file = newRotater(fn, 12*time.Hour)
-			files[fn] = file
+			if file = newRotater(fn, restartPeriod); file != nil {
+				files[fn] = file
+			}
 		}
-		writers = append(writers, file)
+		if file != nil {
+			writers = append(writers, file)
+		}
 	}
 	result = log.New(io.MultiWriter(writers...), "", log.LstdFlags)
 	customLoggers[name] = result
@@ -103,7 +106,7 @@ func GetErrorLogger(name string, filenames ...string) (result *log.Logger) {
 }
 
 // GetLogger returns logger with stdout
-func GetLogger(name string, filenames ...string) (result *log.Logger) {
+func GetLogger(name string, restartPeriod time.Duration, filenames ...string) (result *log.Logger) {
 	var ok bool
 	logLocker.RLock()
 	if result, ok = customLoggers[name]; ok {
@@ -117,7 +120,7 @@ func GetLogger(name string, filenames ...string) (result *log.Logger) {
 	logLocker.Lock()
 	for _, fn := range filenames {
 		if file, ok = files[fn]; !ok {
-			file = newRotater(fn, 12*time.Hour)
+			file = newRotater(fn, restartPeriod)
 			files[fn] = file
 		}
 		writers = append(writers, file)
