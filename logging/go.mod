@@ -1,4 +1,4 @@
-module github.com/finnan444/logging
+module github.com/finnan444/utils/logging
 
 go 1.12
 
