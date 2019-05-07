@@ -30,8 +30,8 @@ type rotater struct {
 
 // Write satisfies the io.Writer interface.
 func (w *rotater) Write(output []byte) (int, error) {
-	w.RLock()
-	defer w.RUnlock()
+	w.Lock()
+	defer w.Unlock()
 	return w.file.Write(output)
 }
 
