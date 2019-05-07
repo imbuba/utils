@@ -74,6 +74,11 @@ func (d *DBWrapper) Custom(name string) (*mgo.Database, func()) {
 	return newSess.DB(name), newSess.Close
 }
 
+// SetPoolLimit sets pool limit
+func (d *DBWrapper) SetPoolLimit(limit int) {
+	d.session.SetPoolLimit(limit)
+}
+
 type autoincrDoc struct {
 	N int `bson:"n"`
 }

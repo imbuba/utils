@@ -1,4 +1,4 @@
-module github.com/finnan444/utils
+module github.com/imbuba/utils
 
 require (
 	github.com/btcsuite/btcd v0.0.0-20190315201642-aa6e0f35703c // indirect
