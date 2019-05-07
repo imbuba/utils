@@ -4,7 +4,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/finnan444/utils/database"
+	"github.com/imbuba/utils/database"
 	"github.com/globalsign/mgo"
 	"github.com/globalsign/mgo/bson"
 )

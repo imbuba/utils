@@ -3,7 +3,7 @@ package response
 import (
 	"sync"
 
-	"github.com/finnan444/utils/pool"
+	"github.com/imbuba/utils/pool"
 )
 
 var (

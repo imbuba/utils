@@ -5,7 +5,7 @@ import (
 	"runtime"
 	"time"
 
-	tr "github.com/finnan444/utils/transport"
+	tr "github.com/imbuba/utils/transport"
 	"github.com/valyala/fasthttp"
 )
 

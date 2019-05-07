@@ -7,7 +7,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/finnan444/utils/time/cron"
+	"github.com/imbuba/utils/time/cron"
 )
 
 // LoggersConsts

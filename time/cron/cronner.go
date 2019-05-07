@@ -4,7 +4,7 @@ import (
 	"sync"
 	"time"
 
-	t "github.com/finnan444/utils/time"
+	t "github.com/imbuba/utils/time"
 )
 
 // EmptyFunction type

@@ -7,8 +7,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/finnan444/utils/math/ints"
-	"github.com/finnan444/utils/transport"
+	"github.com/imbuba/utils/math/ints"
+	"github.com/imbuba/utils/transport"
 	"github.com/valyala/fasthttp"
 )
 

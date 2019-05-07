@@ -1,3 +1,3 @@
-module github.com/finnan444/utils/config
+module github.com/imbuba/utils/config
 
 go 1.12

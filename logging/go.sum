@@ -1,4 +1,4 @@
-github.com/finnan444/utils/time v0.0.0-20190405115310-4added3c2353 h1:KsexS7L9Uw4wnOpUKlDGmApi3jDmHP3l7+rixAG5hjs=
-github.com/finnan444/utils/time v0.0.0-20190405115310-4added3c2353/go.mod h1:WXRt49SP6qAmlOHxHOHfgPDNn8XHNjCJaJBNYL2yDGw=
-github.com/finnan444/utils/time/cron v0.0.0-20190419090713-77ab846b6c26 h1:M1M2UnbZ9tVjBAG4kGYU/M5tkOVx71KAQpE4Vs+Qd0M=
-github.com/finnan444/utils/time/cron v0.0.0-20190419090713-77ab846b6c26/go.mod h1:5SbIgn2/YOq0exhFLswqnYePsI1NpNIwor7FCM9AD/I=
+github.com/imbuba/utils/time v0.0.0-20190312175810-da70e42eca58 h1:EIx4ZOTiyHmx4/IaYB55FHRkpaDOsus7rFla2C+ZCqo=
+github.com/imbuba/utils/time v0.0.0-20190312175810-da70e42eca58/go.mod h1:u8L8RmswwAFvamyQtbtipM+UXc61iGSa4UUt03HoAi4=
+github.com/imbuba/utils/time/cron v0.0.0-20190328091543-76dad0d96b45 h1:h2wmq8HrYtLsQCczZnmIpRXnBStZmmYmGi8TFg/rVZI=
+github.com/imbuba/utils/time/cron v0.0.0-20190328091543-76dad0d96b45/go.mod h1:iUmCEDMebSaKmVd9SK4r7uoWsAko7G2AXr4HUQO0Eqc=

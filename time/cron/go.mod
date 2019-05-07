@@ -1,5 +1,5 @@
-module github.com/finnan444/utils/time/cron
+module github.com/imbuba/utils/time/cron
 
 go 1.12
 
-require github.com/finnan444/utils/time v0.0.0-20190405115310-4added3c2353
+require github.com/imbuba/utils/time v0.0.0-20190328091543-76dad0d96b45

@@ -6,7 +6,7 @@ import (
 	"io"
 	"sync/atomic"
 
-	"github.com/finnan444/utils/math/ints"
+	"github.com/imbuba/utils/math/ints"
 )
 
 const (
