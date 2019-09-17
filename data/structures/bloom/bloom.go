@@ -46,6 +46,13 @@ func (m *MurmurBloom) Add(key []byte) error {
 	return nil
 }
 
+// Clear do smth
+func (m *MurmurBloom) Clear() {
+	m.Lock()
+	m.bits.Clear()
+	m.Unlock()
+}
+
 // Contains do smth
 func (m *MurmurBloom) Contains(key []byte) (bool, error) {
 	if len(key) == 0 {
