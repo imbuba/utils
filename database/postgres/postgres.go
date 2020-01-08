@@ -46,3 +46,15 @@ func init() {
 		panic(err)
 	}
 }
+
+// AlternativeDB returns alternative db
+func AlternativeDB(filename string) (*gorm.DB, error) {
+	config, err := database.ParseConfig(filename)
+	if err != nil {
+		return nil, err
+	}
+	if config.Connection == "" {
+		config.Connection = "host=%{Host}% port=%{Port}% user=%{User}% dbname=%{DBName}% password=%{Password}% sslmode=disable"
+	}
+	return gorm.Open("postgres", config.ConnectionString())
+}
