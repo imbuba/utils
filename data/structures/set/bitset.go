@@ -128,7 +128,9 @@ func (m *BitSet) ClearOne(bitIndex uint) {
 // Clear do smth
 func (m *BitSet) Clear() {
 	for m.wordsInUse >= 0 {
-		m.words[m.wordsInUse] = 0
+		if m.wordsInUse < int64(len(m.words)) {
+			m.words[m.wordsInUse] = 0
+		}
 		m.wordsInUse--
 	}
 }
