@@ -7,11 +7,13 @@ import (
 	"github.com/imbuba/utils/data"
 )
 
+// Constants
 const (
 	RED   = true
 	BLACK = false
 )
 
+// NewRedBlackTree returns new RBT
 func NewRedBlackTree() *RedBlackTree {
 	return &RedBlackTree{
 		pool: sync.Pool{
@@ -38,6 +40,7 @@ func (n *node) Reuse() {
 	n.color = BLACK
 }
 
+// RedBlackTree struct
 type RedBlackTree struct {
 	root *node
 	pool sync.Pool
@@ -47,6 +50,7 @@ func (t *RedBlackTree) isEmpty() bool {
 	return t.root == nil
 }
 
+// Put puts value under the key
 func (t *RedBlackTree) Put(key data.Comparable, value interface{}) {
 	t.root = t.put(t.root, key, value)
 	t.root.color = BLACK
@@ -80,6 +84,7 @@ func (t *RedBlackTree) put(x *node, key data.Comparable, value interface{}) *nod
 	return x
 }
 
+// Get returns value for the given key
 func (t *RedBlackTree) Get(key data.Comparable) interface{} {
 	x := t.root
 	for x != nil {
@@ -95,10 +100,12 @@ func (t *RedBlackTree) Get(key data.Comparable) interface{} {
 	return nil
 }
 
+// Contains check that tree contains key
 func (t *RedBlackTree) Contains(key data.Comparable) bool {
 	return t.Get(key) != nil
 }
 
+// Delete removes by key
 func (t *RedBlackTree) Delete(key data.Comparable) {
 	if t.isEmpty() || !t.Contains(key) {
 		return
@@ -143,6 +150,7 @@ func (t *RedBlackTree) deleteKey(x *node, key data.Comparable) *node {
 	return t.balance(x)
 }
 
+// DeleteMin removes min key and associated value
 func (t *RedBlackTree) DeleteMin() {
 	if t.isEmpty() {
 		return
@@ -169,6 +177,7 @@ func (t *RedBlackTree) deleteMin(x *node) *node {
 	return t.balance(x)
 }
 
+// DeleteMax removes max key and associated value
 func (t *RedBlackTree) DeleteMax() {
 	if t.isEmpty() {
 		return
@@ -198,6 +207,7 @@ func (t *RedBlackTree) deleteMax(x *node) *node {
 	return t.balance(x)
 }
 
+// Floor returns value which key is nearest less or equal to key
 func (t *RedBlackTree) Floor(key data.Comparable) interface{} {
 	node := t.floor(t.root, key)
 	if node != nil {
@@ -224,6 +234,7 @@ func (t *RedBlackTree) floor(x *node, key data.Comparable) *node {
 	return temp
 }
 
+// Ceil returns value which key is nearest greater or equal to key
 func (t *RedBlackTree) Ceil(key data.Comparable) interface{} {
 	node := t.ceil(t.root, key)
 	if node != nil {
@@ -325,6 +336,36 @@ func (t *RedBlackTree) min(x *node) *node {
 	}
 }
 
+func (t *RedBlackTree) max(x *node) *node {
+	if x == nil {
+		return nil
+	}
+	for {
+		if x.right == nil {
+			return x
+		}
+		x = x.right
+	}
+}
+
+// Min returns minimum key, its value
+func (t *RedBlackTree) Min() (data.Comparable, interface{}) {
+	node := t.min(t.root)
+	if node != nil {
+		return node.key, node.value
+	}
+	return nil, nil
+}
+
+// Max returns minimum key, its value
+func (t *RedBlackTree) Max() (data.Comparable, interface{}) {
+	node := t.max(t.root)
+	if node != nil {
+		return node.key, node.value
+	}
+	return nil, nil
+}
+
 func (t *RedBlackTree) String() string {
 	str := "RedBlackTree\n"
 	if !t.isEmpty() {
@@ -333,8 +374,8 @@ func (t *RedBlackTree) String() string {
 	return str
 }
 
-func (node *node) String() string {
-	return fmt.Sprintf("%v", node.key)
+func (n *node) string() string {
+	return fmt.Sprintf("%v", n.key)
 }
 
 func output(node *node, prefix string, isTail bool, str *string) {
@@ -353,7 +394,7 @@ func output(node *node, prefix string, isTail bool, str *string) {
 	} else {
 		*str += "┌── "
 	}
-	*str += node.String() + "\n"
+	*str += node.string() + "\n"
 	if node.left != nil {
 		newPrefix := prefix
 		if isTail {
